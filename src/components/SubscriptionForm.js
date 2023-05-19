@@ -52,10 +52,10 @@ export default function SubscriptionForm() {
   const validate = (email) => {
     if (
       email
-        .trim(
+        .trim()
+        .match(
           /^([a-zA-Z0-9_\-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/
-        )
-        .match() === null
+        ) === null
     ) {
       return false;
     } else if (email.trim() === "") {
@@ -80,7 +80,6 @@ export default function SubscriptionForm() {
           type="text"
           name="email"
           placeholder="Enter Email Address"
-          required
           onChange={(e) => setEmail(e.target.value)}
         />
         <span className="focus-input100"></span>
